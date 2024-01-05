@@ -1,5 +1,6 @@
 #!/bin/env bash
 
+echo "Installing and updating packages..."
 # Function to check and install packages using apt
 install_package() {
     if ! command -v "$1" &>/dev/null; then
@@ -14,6 +15,8 @@ install_package() {
             echo "Failed to install $1. Please check the installation logs."
             exit 1
         fi
+    else
+        echo "$1 is already installed."
     fi
 }
 
@@ -29,6 +32,24 @@ install_package black
 
 # Install ShellCheck
 install_package shellcheck
+
+# Check and install gcc
+install_package gcc
+
+# Check and install valgrind
+install_package valgrind
+
+# Check and install pip
+install_package pip
+
+# Check and install node.js and npm
+install_package node
+install_package npm
+
+# Check and install virtualenv
+pip3 install virtualenv
+
+echo "Installing Betty..."
 
 # Check if Betty is installed
 if command -v betty &>/dev/null; then

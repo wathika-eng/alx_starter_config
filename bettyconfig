@@ -1,0 +1,54 @@
+#!/bin/env bash
+
+# Function to check and install packages using apt
+install_package() {
+    if ! command -v "$1" &>/dev/null; then
+        echo "$1 is not installed. Installing..."
+        sudo apt-get update
+        sudo apt-get install -y "$1"
+
+        # Check if installation was successful
+        if [ $? -eq 0 ]; then
+            echo "$1 has been successfully installed."
+        else
+            echo "Failed to install $1. Please check the installation logs."
+            exit 1
+        fi
+    fi
+}
+
+# Update apt repository
+echo "Updating apt repository..."
+sudo apt-get update
+
+# Install Git if not installed
+install_package git
+
+# Install Black formatter for Python
+install_package black
+
+# Install ShellCheck
+install_package shellcheck
+
+# Check if Betty is installed
+if command -v betty &>/dev/null; then
+    echo "Betty is already installed."
+else
+    # Get betty from GitHub
+    echo "Betty is not installed. Installing..."
+
+    # Clone betty repository
+    git clone https://github.com/alx-tools/Betty.git
+    cd Betty || exit 1
+
+    # Run the install.sh file with sudo privileges
+    sudo ./install.sh
+
+    # Check if installation was successful
+    if [ $? -eq 0 ]; then
+        echo "Betty has been successfully installed."
+    else
+        echo "Failed to install Betty. Please check the installation logs."
+        exit 1
+    fi
+fi

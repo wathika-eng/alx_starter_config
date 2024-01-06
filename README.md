@@ -1,13 +1,12 @@
 *Clone the repo:* 
--      https://github.com/wathika-eng/alx_starter_config.git
+-     git clone https://github.com/wathika-eng/alx_starter_config && cd alx_starter_config
 
-       cd alx_starter_config
-
+-     chmod u+x *.sh
 Run 
--     ./bettyconfig
-      ./vimconfig
+-     ./bettyconfig && ./vimconfig
 
 *Make sure to restart your terminal for changes to be applied.*
+
 *Installs*
 
 git - https://git-scm.com/

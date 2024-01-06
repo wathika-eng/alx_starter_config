@@ -1,0 +1,65 @@
+#!/bin/env bash
+
+# For testing purposes only
+
+git clone https://github.com/bats-core/bats-core.git
+cd bats-core
+sudo ./install.sh /usr/local
+
+#!/usr/bin/env bats
+
+# Load the setup_script.sh to test its functionality
+load '../setup_script.sh'
+
+@test "Test Git installation" {
+    run install_package git
+    [ "$status" -eq 0 ]
+    [ -x "$(command -v git)" ]
+}
+
+@test "Test ShellCheck installation" {
+    run install_package shellcheck
+    [ "$status" -eq 0 ]
+    [ -x "$(command -v shellcheck)" ]
+}
+
+@test "Test GCC installation" {
+    run install_package gcc
+    [ "$status" -eq 0 ]
+    [ -x "$(command -v gcc)" ]
+}
+
+# Add similar tests for other installed packages/functions in your setup script
+
+# Add tests for virtual environment creation and activation
+@test "Test virtual environment creation" {
+    run bash -c 'source ../setup_script.sh && python3 -m venv "$HOME/.venv"'
+    [ "$status" -eq 0 ]
+    [ -d "$HOME/.venv" ]
+}
+
+@test "Test black installation inside virtual environment" {
+    run bash -c 'source ../setup_script.sh && source "$HOME/.venv/bin/activate" && pip install black'
+    [ "$status" -eq 0 ]
+    [ -x "$HOME/.venv/bin/black" ]
+}
+
+# Add tests for NVM installation and Node.js installation using NVM
+@test "Test NVM installation" {
+    run bash -c 'source ../setup_script.sh && wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
+    [ "$status" -eq 0 ]
+    [ -x "$HOME/.nvm/nvm.sh" ]
+}
+
+@test "Test Node.js installation using NVM" {
+    run bash -c 'source ../setup_script.sh && nvm install 21.5 && nvm use 21.5 && node --version'
+    [ "$status" -eq 0 ]
+    [ "${output}" = "v21.5" ]
+}
+
+# Add tests for Betty installation
+@test "Test Betty installation" {
+    run bash -c 'source ../setup_script.sh && command -v betty'
+    [ "$status" -eq 0 ]
+}
+

@@ -32,6 +32,8 @@ sudo apt-get update
 # Install Git if not installed
 install_package git
 
+#Install Make if not installed
+install_package make
 # Install ShellCheck
 install_package shellcheck
 

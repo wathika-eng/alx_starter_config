@@ -3,7 +3,7 @@
 
 -     chmod u+x *.sh
 Run 
--     ./bettyconfig && ./vimconfig
+-     ./bettyconfig.sh && ./vimconfig.sh
 
 *Make sure to restart your terminal for changes to be applied.*
 

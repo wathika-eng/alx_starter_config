@@ -75,20 +75,24 @@ else
 fi
 
 # Install NVM for Node.js version management
-echo "Installing NVM (Node Version Manager)..."
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# echo "Installing NVM (Node Version Manager)..."
+# wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-# Set up NVM environment variables
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# # Set up NVM environment variables
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# Install Node.js version 20.1 using NVM
-echo "Installing Node.js version 21.5..."
-nvm install node 21.5
+# # Install Node.js version 20.1 using NVM
+# echo "Installing Node.js version 21.5..."
+# nvm install node 21.5
 
-# Activate the installed Node.js version
-echo "Activating Node.js version 21.5..."
-nvm use 21.5
+# # Activate the installed Node.js version
+# echo "Activating Node.js version 21.5..."
+# nvm use 21.5
+
+echo "Installing Node JS ..."
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 echo "Installing Betty..."
 # Check if Betty is installed

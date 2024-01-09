@@ -91,7 +91,7 @@ fi
 # nvm use 21.5
 
 echo "Installing Node JS ..."
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_21.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 echo "Installing Betty..."

@@ -1,4 +1,4 @@
-How to run: `sudo curl -sSL https://wathika-eng.github.io/alx_starter_config/bettycfg | bash`
+How to run: `sudo curl -sSL https://wathika-eng.github.io/alx_starter_config/bettycfg.sh | bash`
 
 *Make sure to restart your terminal for changes to be applied.*
 

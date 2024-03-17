@@ -1,9 +1,4 @@
-*Clone the repo:* 
--     git clone https://github.com/wathika-eng/alx_starter_config && cd alx_starter_config
-
--     chmod u+x *.sh
-Run 
--     ./bettyconfig.sh && ./vimconfig.sh
+How to run: `sudo curl -sSL https://wathika-eng.github.io/alx_starter_config/bettycfg | bash`
 
 *Make sure to restart your terminal for changes to be applied.*
 

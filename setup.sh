@@ -65,15 +65,6 @@ if ! is_command_available "code"; then
   if is_command_available "snap"; then
     echo "Installing VSCode using snap..."
     sudo snap install code --classic
-  else
-    if ! is_command_available "wget"; then
-      install_package "wget"
-    fi
-    echo "Installing VSCode from alternative source..."
-    wget -O /tmp/code.deb https://go.microsoft.com/fwlink/?LinkID=760868
-    sudo dpkg -i /tmp/code.deb
-    sudo apt-get install -f
-  fi
 fi
 print_table_results "Installed VSCode" "is_command_available 'code'"
 
@@ -113,4 +104,3 @@ print_data_row "Name" "command -v git >/dev/null 2>&1 && git config user.name"
 print_data_row "Email" "command -v git >/dev/null 2>&1 && git config user.email"
 #echo "Made with ..."
 delimiter
-

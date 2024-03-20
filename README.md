@@ -6,4 +6,4 @@ This script automates the installation and verification of the requirements for 
 
 
 ```bash
-curl -so- https://raw.githubusercontent.com/wathika-eng/moringa_setup/main/setup.sh | bash 2> /dev/null
+curl -so- https://raw.githubusercontent.com/wathika-eng/moringa_setup/moringa/setup.sh | bash 2> /dev/null
